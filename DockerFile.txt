@@ -1,0 +1,19 @@
+# Use Python Image
+FROM python:3.9
+
+# Set Working Directory
+WORKDIR /app
+
+# Copy Files
+COPY requirements.txt requirements.txt
+COPY app.py app.py
+COPY random_forest_model.pkl random_forest_model.pkl
+
+# Install Dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose Port
+EXPOSE 5000
+
+# Run Flask App
+CMD ["python", "app.py"]
